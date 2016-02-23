@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/barLayout"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:id="@+id/toolbar"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="@drawable/toolbar_shadow" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/callLayout"
+        android:layout_below="@id/barLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="2dp"
+        android:layout_margin="@dimen/card_margin">
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:scaleType="centerCrop"
+            android:background="@color/colorPrimary" />
+
+        <RelativeLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/contactPhoto"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/contact_no_image"
+                android:layout_margin="16dp" />
+
+            <TextView
+                android:id="@+id/contactName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_alignStart="@id/contactPhoto"
+                android:layout_marginLeft="74dp" />
+
+            <TextView
+                android:id="@+id/contactCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contactName"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_alignStart="@id/contactName"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/contactNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="13dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/contactType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contactNumber"
+                android:layout_alignStart="@id/contactNumber"
+                android:text="Мобильный телефон "
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/tvEndCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_view_end_call"
+                android:text="ОТКЛОНИТЬ"
+                android:padding="4dp"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tvInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contactType"
+                android:layout_alignStart="@id/contactNumber"
+                android:text="Для ответа на звонок выберете менеджера из списка"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+            android:id="@+id/tvManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/callLayout"
+            android:textColor="@color/colorGreen"
+            android:textStyle="bold"
+            android:text="МЕНЕДЖЕРЫ"
+            android:textSize="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/tvManager"
+            android:background="#b0b0b0"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp" />
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="3"
+            android:scrollbars="none"
+            android:verticalSpacing="8dp"
+            android:horizontalSpacing="8dp"
+            android:scrollIndicators="none"
+            android:layout_below="@id/tvManager"
+            android:layout_margin="8dp">
+        </GridView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addManager"
+            app:elevation="4dp"
+            app:backgroundTint="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_plus"
+            android:layout_alignEnd="@+id/gridView"
+            android:layout_margin="@dimen/fab_margin">
+        </android.support.design.widget.FloatingActionButton>
+
+</RelativeLayout>
+
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Для экрана настроек -->
+    <string name="generalSettingTitle">Основные настройки</string>
+    <string name="additionalSettingTitle">Дополнительные настройки</string>
+    <string name="networkSettingTitle">Сетевые настройки</string>
+    <string name="networkSettingSummary">Общее сетевые настройки (ip, порт и тд)</string>
+
+    <!--Отпределяет вести запись или нет-->
+    <string name="chActiveRecordKey">chActiveRecordKey</string>
+    <string name="chRecordTitle">Вести запись</string>
+    <string name="chRecordSummaryOn">Запись разговоров разрешена</string>
+    <string name="chRecordSummaryOff">Запись разговоров запрешена</string>
+
+    <!-- Определяет задержку перед началом записи-->
+    <string name="etDelayRecordIsCallKey">etDelayRecordIsCall</string>
+    <string name="etDelayRecordTitle">Задержка</string>
+    <string name="etDelaySummary">Задержка перед началом записи при при исходящем звонке (в сек)</string>
+    <string name="etDelayDialogTitle">Введите значения (0 - 20)</string>
+    <string name="etDelayDependence">@string/chActiveRecordKey</string>
+
+    <!-- устанавливает администратора устройства-->
+    <string name="chAdminKey">chAdminKey</string>
+    <string name="chAdminTitle">Запретить удаление</string>
+    <string name="chAdminSummaryOn">Удаление запрещено</string>
+    <string name="chAdminSummaryOff">Удаление разрешено</string>
+
+    <!-- для изменения пароля-->
+    <string name="etPasswordKey">etPasswordKey</string>
+    <string name="etPasswordTitle">Пароль</string>
+    <string name="etPasswordSummary">Пароль для доступа к настройкам приложения</string>
+    <string name="etPasswordDialogTitle">Введите новый пароль (4 цифры) </string>
+    <string name="etPasswordDependency">@string/chAdminKey</string>
+
+    <!--определяяет нужно ли выгружать записи-->
+    <string name="chUnLoadRecordKey">chUnLoadRecord</string>
+    <string name="chUnLoadRecordTitle">Выгрузка записей</string>
+    <string name="chUnLoadRecordSummaryOn">Выгрузка разрешена</string>
+    <string name="chUnLoadRecordSummaryOff">Выгрузка запрещена</string>
+
+    <!--ip адресс-->
+    <string name="etSettingIpKey">etSettingIp</string>
+    <string name="etSettingIpTitle">IP адресс</string>
+    <string name="etSettingIpSummary">Адрес сервера</string>
+    <string name="etSettingIpDependency">@string/chUnLoadRecordKey</string>
+
+    <!-- для порта -->
+    <string name="etSettingPortKey">etSettingPort</string>
+    <string name="etSettingPortTitle">Порт</string>
+    <string name="etSettingPortSummary">Укажите порт</string>
+    <string name="etSettingPortDependency">@string/chUnLoadRecordKey</string>
+
+    <!-- для подразделения -->
+    <string name="etSettingSubdivisionKey">etSettingSubdivision</string>
+    <string name="etSettingSubdivisionTitle">Subdivision</string>
+    <string name="etSettingSubdivisionSummary">Pleas input subdivision</string>
+    <string name="etSettingSubdivisionDependency">@string/chUnLoadRecordKey</string>
+
+
+
+</resources>

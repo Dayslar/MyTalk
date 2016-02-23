@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dayslar.mytalk"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+        <application
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"
+            android:allowBackup="true">
+
+                <!-- Все активности -->
+                <activity android:name="com.dayslar.mytalk.Activity.MainActivity"
+                    android:label="@string/app_name"
+                    android:screenOrientation="portrait" >
+                        <intent-filter>
+                                <action android:name="android.intent.action.MAIN" />
+                                <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
+                </activity>
+                <activity android:name="com.dayslar.mytalk.Activity.ListRecordsActivity"
+                    android:label="Все записи"
+                    android:screenOrientation="portrait" />
+                <activity android:name="com.dayslar.mytalk.Activity.DialogActivity"
+                    android:screenOrientation="portrait" />
+                <activity android:name="com.dayslar.mytalk.Activity.EditManagerActivity"
+                    android:label="Редактирование"
+                    android:screenOrientation="portrait" />
+                <activity android:name="com.dayslar.mytalk.Activity.PreferencesActivity"
+                    android:label="@string/action_settings"
+                    android:screenOrientation="portrait" />
+                <activity android:name="com.dayslar.mytalk.Activity.PinActivity"
+                    android:label="Ввод пароль"
+                    android:screenOrientation="portrait" />
+
+                <!-- Все ресиверы -->
+                <receiver android:name="com.dayslar.mytalk.Receiver.AdminReceiver"
+                    android:description="@string/app_admin_receiver_description"
+                    android:label="@string/app_name"
+                    android:permission="android.permission.BIND_DEVICE_ADMIN" >
+                        <meta-data
+                            android:name="android.app.device_admin"
+                            android:resource="@xml/device_admin" />
+
+                        <intent-filter>
+                                <action android:name="android.app.action.ACTION_DEVICE_ADMIN_DISABLED" />
+                                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                        </intent-filter>
+                </receiver>
+                <receiver android:name="com.dayslar.mytalk.Receiver.TelephonyReceiver"
+                    android:enabled="true" >
+                        <intent-filter>
+                                <action android:name="android.intent.action.PHONE_STATE" />
+                                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                        </intent-filter>
+                </receiver>
+                <receiver android:name="com.dayslar.mytalk.Receiver.NetworkReceiver"
+                    android:enabled="true"
+                    android:permission="android.permission.ACCESS_NETWORK_STATE" >
+                        <intent-filter>
+                                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                        </intent-filter>
+                </receiver>
+
+                <!-- Все сервисы -->
+                <service android:name="com.dayslar.mytalk.Service.TelephonyService"
+                    android:process=":telephonyProcess" />
+                <service android:name="com.dayslar.mytalk.Service.TelephonyService$RecordService"
+                    android:process=":telephonyProcess" />
+                <service android:name="com.dayslar.mytalk.Service.SocketClientService"
+                    android:process=":unloadRecord" />
+
+
+        </application>
+
+        <!-- Все разрешения -->
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.CALL_PHONE" />
+        <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+        <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+</manifest>

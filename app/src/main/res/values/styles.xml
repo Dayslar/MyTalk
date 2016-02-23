@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--Светлая тема для диологов-->
+    <style name="AlertDialogCustomLight" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorAccentDark</item>
+    </style>
+
+    <!--Темная тема для диологов-->
+    <style name="AlertDialogCustomDark" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+</resources>

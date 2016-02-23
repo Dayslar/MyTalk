@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/generalSettingTitle">
+
+        <CheckBoxPreference
+            android:key="@string/chActiveRecordKey"
+            android:title="@string/chRecordTitle"
+            android:defaultValue="true"
+            android:summaryOn="@string/chRecordSummaryOn"
+            android:summaryOff="@string/chRecordSummaryOff"/>
+
+        <EditTextPreference
+            android:key="@string/etDelayRecordIsCallKey"
+            android:dependency="@string/etDelayDependence"
+            android:title="@string/etDelayRecordTitle"
+            android:summary="@string/etDelaySummary"
+            android:defaultValue="10"
+            android:dialogTitle="@string/etDelayDialogTitle"
+            android:maxLength="2"
+            android:inputType="number"
+            android:numeric="integer" />
+
+        <EditTextPreference
+            android:key="@string/etSettingSubdivisionKey"
+            android:title="@string/etSettingSubdivisionTitle"
+            android:summary="@string/etSettingSubdivisionSummary"
+            android:defaultValue=""
+            android:maxLength="100"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/additionalSettingTitle">
+
+        <CheckBoxPreference
+            android:key="@string/chAdminKey"
+            android:title="@string/chAdminTitle"
+            android:summaryOn="@string/chAdminSummaryOn"
+            android:summaryOff="@string/chAdminSummaryOff"
+            android:defaultValue="false"/>
+
+        <EditTextPreference
+            android:key="@string/etPasswordKey"
+            android:title="@string/etPasswordTitle"
+            android:summary="@string/etPasswordSummary"
+            android:dialogTitle="@string/etPasswordDialogTitle"
+            android:dependency="@string/etPasswordDependency"
+            android:defaultValue="7676"
+            android:inputType="number"
+            android:numeric="integer"
+            android:maxLength="4" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/networkSettingTitle">
+
+            <CheckBoxPreference
+                android:key="@string/chUnLoadRecordKey"
+                android:title="@string/chUnLoadRecordTitle"
+                android:summaryOn="@string/chUnLoadRecordSummaryOn"
+                android:summaryOff="@string/chUnLoadRecordSummaryOff"/>
+
+            <EditTextPreference
+                android:key="@string/etSettingIpKey"
+                android:dependency="@string/etSettingIpDependency"
+                android:title="@string/etSettingIpTitle"
+                android:summary="@string/etSettingIpSummary"
+                android:defaultValue="192.168.173.1" />
+
+            <EditTextPreference
+                android:key="@string/etSettingPortKey"
+                android:dependency="@string/etSettingPortDependency"
+                android:title="@string/etSettingPortTitle"
+                android:summary="@string/etSettingPortSummary"
+                android:defaultValue="8080"
+                android:maxLength="6"
+                android:inputType="number"
+                android:numeric="integer" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,49 @@
+<android.support.v7.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="2dp"
+    app:cardBackgroundColor="#ffffff">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/imageManager"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvNameManger"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="11dp"
+            android:text=""
+            android:layout_below="@+id/imageManager"
+            android:layout_alignRight="@+id/imageManager"
+            android:layout_alignEnd="@+id/imageManager" />
+
+        <ImageView
+            android:id="@+id/btnFunction"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="2dp"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_dots_vertical"
+            android:layout_alignBottom="@+id/imageManager"
+            android:layout_alignRight="@+id/imageManager"
+            android:layout_alignEnd="@+id/imageManager"
+            android:scaleType="centerCrop"
+            android:layout_margin="4dp" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="2dp">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:clickable="false">
+
+            <ImageView
+                android:id="@+id/imageCall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/contact_no_image"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/tvInfoCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/imageCall"
+                android:layout_toEndOf="@+id/imageCall"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="Исходящий вызов на" />
+
+            <TextView
+                android:id="@+id/tvCallPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/tvInfoCall"
+                android:layout_alignLeft="@+id/tvInfoCall"
+                android:layout_alignStart="@+id/tvInfoCall"
+                android:textStyle="italic"
+                android:textSize="12dp"
+                android:text="+375295642388" />
+
+            <TextView
+                android:id="@+id/tvCallDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/tvCallPhone"
+                android:layout_alignLeft="@+id/tvInfoCall"
+                android:layout_alignStart="@+id/tvInfoCall"
+                android:textStyle="bold"
+                android:textSize="10dp"
+                android:text="Продолжительность: 12:30" />
+
+
+            <ImageView
+                android:id="@+id/imageIsCall"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="2dp"
+                android:scaleType="centerCrop"
+                android:layout_below="@+id/tvCallDuration"
+                android:layout_alignLeft="@id/tvInfoCall" />
+
+            <TextView
+                android:id="@+id/tvOperator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="4dp"
+                android:padding="2dp"
+                android:background="#a8f8d200"
+                android:layout_below="@+id/tvCallDuration"
+                android:layout_toRightOf="@+id/imageIsCall"
+                android:layout_toEndOf="@+id/imageIsCall"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textAlignment="center"
+                android:textSize="8dp"
+                android:text="Velcom"
+                />
+
+            <ImageView
+                android:id="@+id/btnFunction"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_dots_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/colorBlack"
+                android:text="8:40"
+                android:layout_alignBottom="@+id/tvOperator"
+                android:layout_toRightOf="@+id/tvOperator"
+                android:layout_toEndOf="@+id/tvOperator" />
+
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
