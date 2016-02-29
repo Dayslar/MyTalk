@@ -13,13 +13,14 @@ import java.util.concurrent.Executors;
 public class SocketClientService extends Service {
 
     public static int CLIENT_COUNT = 0;
+    private static int EXECUTOR_POOL = 1;
     private static ExecutorService executorService;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        executorService = Executors.newFixedThreadPool(2);
+        executorService = Executors.newFixedThreadPool(EXECUTOR_POOL);
     }
 
     @Override
