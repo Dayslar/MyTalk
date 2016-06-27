@@ -9,8 +9,9 @@
             android:title="@string/chRecordTitle"
             android:defaultValue="true"
             android:summaryOn="@string/chRecordSummaryOn"
-            android:summaryOff="@string/chRecordSummaryOff"/>
-
+            android:summaryOff="@string/chRecordSummaryOff"
+            android:persistent="false"
+            android:disableDependentsState="false" />
         <EditTextPreference
             android:key="@string/etDelayRecordIsCallKey"
             android:dependency="@string/etDelayDependence"
@@ -51,7 +52,8 @@
             android:defaultValue="7676"
             android:inputType="number"
             android:numeric="integer"
-            android:maxLength="4" />
+            android:maxLength="4"
+            android:singleLine="false" />
 
     </PreferenceCategory>
 

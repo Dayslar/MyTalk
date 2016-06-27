@@ -50,6 +50,11 @@ public class SocketThread implements Runnable {
             if (record == null)
                 return;
 
+            if (record.getFilePatch().equals("") && record.getCallDuration() > 0) {
+                Controller.getSQL(context).deleteRecord(recordId);
+                return;
+            }
+
             OutputStream out = socket.getOutputStream();
             if (SHI.sendInfo(out, record)) {
                 Log.d("RECORD_SOCKET", "#" + threadID + ": Данные успешно отправленны");

@@ -272,7 +272,8 @@ public class TelephonyService extends Service {
 
 
         private void stopRecord() {
-            if (mediaRecorder != null && isRecording) mediaRecorder.stop();
+            if (mediaRecorder != null && isRecording)
+                mediaRecorder.stop();
             isRecording = false;
 
             Log.d("RECORD", "Запись закончена");
