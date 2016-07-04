@@ -334,7 +334,7 @@ public class TelephonyService extends Service {
 
         File file = new File(fileNameBuilder.toString());
         if (!file.exists())
-            System.out.println(file.mkdir());
+            file.mkdir();
 
         fileNameBuilder.append("/");
 

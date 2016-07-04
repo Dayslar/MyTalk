@@ -38,13 +38,6 @@ public class SocketThread implements Runnable {
             InetAddress ipAddress = InetAddress.getByName(Setting.settingIp);
             Integer port = Integer.parseInt(Setting.settingPort);
 
-            Log.d("RECORD_SOCKET", "#" + threadID + ": Пробуем подключиться + " + ipAddress);
-
-            socket = new Socket(ipAddress, port);
-            socket.setSoTimeout(10000);
-
-            Log.d("RECORD_SOCKET", "#" + threadID + ": Успешно подключились");
-
             Record record = Controller.getSQL(context).getRecord(recordId);
 
             if (record == null)
@@ -54,6 +47,13 @@ public class SocketThread implements Runnable {
                 Controller.getSQL(context).deleteRecord(recordId);
                 return;
             }
+
+            Log.d("RECORD_SOCKET", "#" + threadID + ": Пробуем подключиться + " + ipAddress);
+
+            socket = new Socket(ipAddress, port);
+            socket.setSoTimeout(10000);
+
+            Log.d("RECORD_SOCKET", "#" + threadID + ": Успешно подключились");
 
             OutputStream out = socket.getOutputStream();
             if (SHI.sendInfo(out, record)) {
