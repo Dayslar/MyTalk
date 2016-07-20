@@ -3,4 +3,5 @@
     <string name="app_admin_receiver_description">Для запрета удаления и остановки приложения нажмите кнопку активировать.</string>
     <string name="app_name">Мои разговоры</string>
     <string name="action_settings">Настройки</string>
+    <string name="pin_layout_input_pin_title">Введите пароль</string>
 </resources>

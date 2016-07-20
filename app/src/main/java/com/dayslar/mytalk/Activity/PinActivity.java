@@ -5,17 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 
+import com.andrognito.pinlockview.IndicatorDots;
+import com.andrognito.pinlockview.PinLockListener;
+import com.andrognito.pinlockview.PinLockView;
 import com.dayslar.mytalk.R;
 import com.dayslar.mytalk.Utils.Setting;
-
-import me.philio.pinentry.PinEntryView;
 
 public class PinActivity extends AppCompatActivity {
 
     private Context context;
+    private PinLockView pinLockView;
+    private IndicatorDots indicatorDots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,26 +31,39 @@ public class PinActivity extends AppCompatActivity {
     }
 
     private void initializePinView() {
-        PinEntryView pinEntryView = (PinEntryView) findViewById(R.id.pin_entry_simple);
-        pinEntryView.addTextChangedListener(new TextWatcher() {
+
+        pinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
+        indicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
+
+        pinLockView.attachIndicatorDots(indicatorDots);
+        pinLockView.setPinLockListener(initPinLockListener());
+
+        pinLockView.setPinLength(4);
+        pinLockView.setTextColor(getResources().getColor(R.color.white));
+    }
+
+    private PinLockListener initPinLockListener(){
+        return new PinLockListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void onComplete(String pin) {
+                Setting.loadSetting(context);
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.toString().equals(Setting.settingPassword)) {
+                if (pin.equals(Setting.settingPassword)){
                     startActivity(new Intent(context, PreferencesActivity.class));
                 }
 
             }
-        });
+
+            @Override
+            public void onEmpty() {
+
+            }
+
+            @Override
+            public void onPinChange(int pinLength, String intermediatePin) {
+
+            }
+        };
     }
 
     private void initializeToolbar() {
