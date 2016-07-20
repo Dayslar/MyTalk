@@ -1,10 +1,12 @@
 package com.dayslar.mytalk.Adapters;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -102,7 +104,6 @@ public class ManagersAdapter extends BaseAdapter {
                     buttonDown.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_HEADSETHOOK));
                     context.sendOrderedBroadcast(buttonDown, "android.permission.CALL_PRIVILEGED");
 
-                    // froyo and beyond trigger on buttonUp instead of buttonDown
                     Intent buttonUp = new Intent(Intent.ACTION_MEDIA_BUTTON);
                     buttonUp.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_HEADSETHOOK));
                     context.sendOrderedBroadcast(buttonUp, "android.permission.CALL_PRIVILEGED");
@@ -110,6 +111,9 @@ public class ManagersAdapter extends BaseAdapter {
                     context.startActivity(new Intent(context, DialogActivity.class));
 
                     Toast.makeText(context, "На звонок ответил(а) " + manager.getName(), Toast.LENGTH_LONG).show();
+
+                    lockScreen();
+
                 }
 
                 else Toast.makeText(context, "Сейчас никто не звонит", Toast.LENGTH_SHORT).show();
@@ -164,12 +168,12 @@ public class ManagersAdapter extends BaseAdapter {
     //изменяет фотографию профиля
     private void setImageProfile(ImageView imageManager, String photoPatch){
         if (photoPatch != null && photoPatch.length() > 2)
-        try {
-            Bitmap pick = MediaStore.Images.Media.getBitmap(context.getContentResolver(), Uri.parse(photoPatch));
-            imageManager.setImageBitmap(pick);
-        } catch (Exception e) {
-            Log.d("RECORD_ERROR", e.toString());
-        }
+            try {
+                Bitmap pick = MediaStore.Images.Media.getBitmap(context.getContentResolver(), Uri.parse(photoPatch));
+                imageManager.setImageBitmap(pick);
+            } catch (Exception e) {
+                Log.d("RECORD_ERROR", e.toString());
+            }
     }
 
     //диолог удаления менеджера
@@ -192,6 +196,18 @@ public class ManagersAdapter extends BaseAdapter {
                     }
                 })
                 .create();
+    }
+
+    private void lockScreen() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DevicePolicyManager mDPM;
+                mDPM = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                mDPM.lockNow();
+            }
+        }, 700);
     }
 
     static class ViewHolder{
